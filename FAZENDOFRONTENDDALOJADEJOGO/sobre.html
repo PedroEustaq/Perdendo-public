@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft | GameStore</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sobre.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+</head>
+
+<body class="pagina-produto">
+
+    <main class="produto-page">
+
+        <section class="produto-card">
+
+            <div class="produto-esquerda">
+
+                <p class="breadcrumb">Catálogo &gt; Jogos &gt; Minecraft</p>
+
+                <div class="produto-imagem-principal">
+                    <img src="../image 46.png" alt="Minecraft" id="imagemPrincipal">
+                </div>
+
+                <div class="produto-bolinhas" aria-hidden="true">
+                    <span class="ativa"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="produto-miniaturas">
+                    <div class="miniatura ativa">
+                        <img src="../image 46.png" alt="Imagem 1">
+                    </div>
+
+                    <div class="miniatura">
+                        <img src="../minebedrock.png" alt="Imagem 2">
+                    </div>
+
+                    <div class="miniatura">
+                        <img src="../image 47.png" alt="Imagem 3">
+                    </div>
+
+                    <div class="miniatura">
+                        <img src="../image 46.png" alt="Imagem 4">
+                    </div>
+
+                    <div class="miniatura">
+                        <img src="../minebedrock.png" alt="Imagem 5">
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="produto-direita">
+
+                <span class="tag-destaque">Jogo digital</span>
+
+                <h1>Minecraft</h1>
+
+                <div class="linha-preco">
+                    <h2 class="produto-preco">R$99</h2>
+
+                    <div class="nota-produto">
+                        <img src="../svg/starYellow.svg" alt="">
+                        <span>9.0</span>
+                    </div>
+                </div>
+
+                <p class="produto-descricao">
+                    Um mundo quadrado não é o que se espera desse jogo.
+                    Explore, construa e jogue no seu ritmo.
+                </p>
+
+                <div class="produto-acoes">
+                    <a href="#" class="btn-principal">Botar no carrinho</a>
+                    <a href="#" class="btn-secundario">Embrulhar para presente</a>
+                </div>
+
+                <div class="produto-dados">
+                    <div>
+                        <span>Categoria</span>
+                        <strong>Jogo</strong>
+                    </div>
+
+                    <div>
+                        <span>Plataforma</span>
+                        <strong>Nintendo</strong>
+                    </div>
+
+                    <div>
+                        <span>Fornecedor</span>
+                        <strong>Mojang</strong>
+                    </div>
+
+                    <div>
+                        <span>Formato</span>
+                        <strong>Digital</strong>
+                    </div>
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <script>
+        const imagemPrincipal = document.querySelector("#imagemPrincipal");
+        const miniaturas = document.querySelectorAll(".miniatura");
+        const bolinhas = document.querySelectorAll(".produto-bolinhas span");
+
+        let atual = 0;
+
+        function mostrarImagem(indice) {
+            const miniatura = miniaturas[indice];
+            const novaImagem = miniatura.querySelector("img").src;
+
+            imagemPrincipal.src = novaImagem;
+
+            miniaturas.forEach((item) => item.classList.remove("ativa"));
+            bolinhas.forEach((item) => item.classList.remove("ativa"));
+
+            miniatura.classList.add("ativa");
+            bolinhas[indice].classList.add("ativa");
+
+            atual = indice;
+        }
+
+        miniaturas.forEach((item, indice) => {
+            item.addEventListener("click", () => {
+                mostrarImagem(indice);
+            });
+        });
+
+        bolinhas.forEach((item, indice) => {
+            item.addEventListener("click", () => {
+                mostrarImagem(indice);
+            });
+        });
+
+        setInterval(() => {
+            atual++;
+            if (atual >= miniaturas.length) {
+                atual = 0;
+            }
+            mostrarImagem(atual);
+        }, 4000);
+    </script>
+
+</body>
+
+</html>
