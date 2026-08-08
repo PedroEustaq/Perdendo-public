@@ -1,0 +1,42 @@
+.form-usuario {
+    width: 400px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+}
+
+.form-usuario .campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-usuario label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-usuario input,
+.form-usuario select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.form-usuario button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-usuario button:hover {
+    background: #444;
+}

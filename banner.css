@@ -1,0 +1,162 @@
+.banner{
+
+    width:100%;
+   
+
+    overflow:hidden;
+
+    position:relative;
+
+
+    
+    position:relative;
+
+  
+
+    width: 100%;
+
+    overflow:hidden;
+}
+
+
+
+
+.banner-info{
+
+    position:absolute;
+
+    left:100px;
+
+    bottom:70px;
+
+    color:white;
+
+}
+
+.banner h1{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+.banner p{
+
+    font-size:20px;
+
+    margin-bottom:25px;
+
+}
+
+.banner button{
+
+    width:180px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#d81b1b;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.slides{
+
+    display:flex;
+
+    width:100%;
+    height:500px;
+
+    transition:transform .8s ease;
+
+}
+
+.slides img{
+
+    width:100%;
+
+    object-fit:cover;
+
+    flex-shrink:0;
+
+}.indicadores{
+    position:absolute;
+    left:50%;
+    bottom:30px;
+    transform:translateX(-50%);
+    display:flex;
+    gap:14px;
+    z-index:20;
+}
+
+.indicador{
+
+    width:14px;
+    height:14px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(10px);
+
+    cursor:pointer;
+
+    transition:
+        width .35s ease,
+        background .35s ease,
+        transform .25s ease;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:0;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.indicador:hover{
+    transform:translateY(-2px);
+}
+
+.indicador.ativo{
+
+    width:170px;
+
+    background:#e60012;
+
+    padding:0 16px;
+}
+
+.indicador span{
+
+    color:white;
+
+    font-size:13px;
+    font-weight:600;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+    opacity:0;
+
+    transition:opacity .25s;
+
+    margin-left:4px;
+
+    width:100%;
+}
+
+.indicador.ativo span{
+    opacity:1;
+}

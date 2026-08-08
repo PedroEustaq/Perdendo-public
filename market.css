@@ -1,0 +1,429 @@
+/* =========================
+   MARKET
+========================= */
+
+.Market{
+    width:min(92%,1400px);
+    margin:70px auto;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:32px;
+    align-items:start;
+}
+/* =========================
+   FILTROS
+========================= */
+
+.Market .filtros{
+    position:sticky;
+    top:85px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:28px;
+
+    padding:28px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.08),
+        inset 0 1px rgba(255,255,255,.8);
+
+    transition:.3s;
+}
+
+.Market .filtros h2{
+    font-size:30px;
+    font-weight:900;
+    color:#111;
+    margin-bottom:28px;
+}
+
+.Market .filtros h3{
+    margin:28px 0 12px;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#888;
+}
+
+.Market .filtros label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 12px;
+
+    border-radius:14px;
+
+    transition:.2s;
+}
+
+.Market .filtros label:hover{
+    background:#f5f6f8;
+}
+
+/* =========================
+   CATÁLOGO
+========================= */
+
+.Market .catalogo{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:24px;
+    grid-auto-flow:row dense;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.Market .card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #ececec;
+    transition:.25s;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+}
+
+.Market .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+.card:hover > img{
+    transform:scale(1.08);
+    transition: transform 0.5s;
+}
+
+/* =========================
+   IMAGEM
+========================= */
+
+.Market .card img{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    display:block;
+    transition: transform 0.5s;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.Market .card-info{
+    padding:18px;
+    display: flex;
+    flex-flow: column nowrap;
+justify-content: space-between;
+height: 100%;
+
+}
+
+.Market .card-topo{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.Market .card h3{
+    font-size:clamp(.92rem,1vw,.98rem);
+    font-weight:700;
+    color:#111;
+    line-height:1.35;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    word-break:break-word;
+}
+
+.Market .card span{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    color:#f7b500;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.Market .card span img{
+    width:15px;
+    height:15px;
+}
+
+.Market .card p{
+    color:#666;
+    font-size:14px;
+}
+
+/* =========================
+   WIDE
+========================= */
+
+.Market .card--wide{
+    grid-column:span 2;
+}
+
+.Market .card--wide img{
+    aspect-ratio:16/9;
+}
+
+.Market .card--wide .card-info{
+    padding:22px;
+}
+
+.Market .card--wide h3{
+    font-size:clamp(1.1rem,1.6vw,1.45rem);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:1200px){
+
+    .Market{
+        grid-template-columns:1fr;
+    }
+
+    .Market .filtros{
+        position:static;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .Market .catalogo{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .Market .catalogo{
+        grid-template-columns:1fr;
+    }
+
+    .Market .card--wide{
+        grid-column:span 1;
+    }
+
+    .Market .card img,
+    .Market .card--wide img{
+        aspect-ratio:16/10;
+    }
+
+}
+.Market .card-link{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+}
+
+.Market .card-link:has(.card--wide){
+    grid-column:span 2;
+}
+
+
+
+.filtros input[type="range"]{
+    width:100%;
+    cursor:pointer;
+}
+
+.valorNota{
+    margin-top:8px;
+    color:#fff;
+    font-size:14px;
+    text-align:center;
+}
+
+.filtros.--promocional {
+    overflow: hidden;
+
+    background-color: #e60012;
+    color: white;
+    height: 500px;
+
+    border-radius: 12px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    background-image: url("./imgDeco/captoad2.png");
+    background-size: 280px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.filtros.--promocional:hover {
+    cursor: pointer;
+    
+}
+
+.filtros.--promocional::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #fff,
+        transparent,
+        #fff,
+        transparent
+    );
+    background-size: 300% 100%;
+
+    animation: borderMove 8s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+
+    pointer-events: none;
+}
+
+@keyframes borderMove {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 300% 0%;
+    }
+}
+.Market .campoBusca{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    height:52px;
+
+    background:#f6f7f9;
+
+    border:1px solid transparent;
+
+    border-radius:18px;
+
+    padding:0 18px;
+
+    transition:.25s;
+}
+
+.Market .campoBusca:hover{
+    background:#f0f2f4;
+}
+
+.Market .campoBusca:focus-within{
+
+    background:white;
+
+    border-color:#e60012;
+
+    box-shadow:0 0 0 4px rgba(230,0,18,.10);
+
+}
+
+.Market .campoBusca img{
+    width:18px;
+    opacity:.6;
+}
+
+.Market .campoBusca input{
+
+    width:100%;
+
+    border:none;
+    outline:none;
+
+    background:none;
+
+    font-size:14px;
+    font-weight:500;
+}
+
+.Market .filtros select{
+
+    width:100%;
+    height:50px;
+
+    padding:0 18px;
+
+    border:none;
+    outline:none;
+
+    border-radius:16px;
+
+    background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+    no-repeat right 16px center,
+    #f6f7f9;
+
+    appearance:none;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.Market .filtros select:hover{
+
+    background-color:#eef1f4;
+
+}
+
+.Market .filtros select:focus{
+
+    background-color:white;
+
+    box-shadow:0 0 0 4px rgba(230,0,18,.10);
+
+}
+
+.Market .filtros input[type="range"]{
+
+    width:100%;
+    margin-top:10px;
+
+    accent-color:#e60012;
+
+    cursor:pointer;
+}
+
+.valorNota{
+
+    margin-top:10px;
+
+    background:#f5f6f8;
+
+    border-radius:999px;
+
+    padding:8px;
+
+    color:#444;
+
+    font-weight:700;
+
+    text-align:center;
+}
+.valorNota > img {
+    width: 16px;
+    height: 16px;
+}
